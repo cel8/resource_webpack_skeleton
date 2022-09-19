@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "commonjs",
+    "paths": {
+      "Assets/*": ["src/assets/*"],
+      "Controller/*": ["src/controller/*"],
+      "Modules/*": ["src/modules/*"],
+      "Style/*": ["src/style/*"],
+      "Utilities/*": ["src/utilities/*"],
+    }
+  }
+}
