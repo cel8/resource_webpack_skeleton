@@ -54,6 +54,9 @@ touch .gitignore
 
 # Add to gitignore
 echo "jsconfig.json" >> .gitignore
+echo "package-lock.json" >> .gitignore
+echo ".eslintrc.json" >> .gitignore
+echo ".vscode" >> .gitignore
 echo "node_modules" >> .gitignore
 echo "dist" >> .gitignore
 
@@ -70,6 +73,7 @@ echo "Live demo <a href=\"dst-page-link\">here</a>." >> README.md
 # Copy common resources
 cp "$HOME/repos/web/resWebPrj/jsconfig.json" .
 cp "$HOME/repos/web/resWebPrj/webpack.config.js" .
+cp -R "$HOME/repos/web/resWebPrj/.vscode" .
 cp -R "$HOME/repos/web/resWebPrj/src" .
 cp -R "$HOME/repos/web/resWebPrj/dist" .
 
@@ -81,7 +85,15 @@ sed -i 's/"main":.*\.js",/"private": true,/g' package.json
 sed -i 's/exit 1"/exit 1",\n    "watch": "webpack --watch",\n    "build": "webpack"/g' package.json
 
 # Install packages
-npm install --save-dev webpack webpack-cli clean-webpack-plugin css-loader style-loader html-webpack-plugin lodash file-loader
+npm i -P css-loader style-loader date-fns
+npm i -D webpack webpack-cli clean-webpack-plugin html-webpack-plugin
+npm i -D eslint eslint-import-resolver-webpack eslint-plugin-import eslint-config-prettier
+
+# Install ESLINT
+npm init @eslint/config
+
+# Copy default eslintrc
+cp "$HOME/repos/web/resWebPrj/.eslintrc.json" .
 
 # Return to current folder
 cd "$curDir"

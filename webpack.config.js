@@ -6,6 +6,10 @@ module.exports = {
   mode: 'development',
   entry: {
     index:              './src/index.js',
+    buttonManager:      './src/utilities/button-manager.js',
+    inputManager:       './src/utilities/input-manager.js',
+    domManager:         './src/utilities/dom-manager.js',
+    uiController:       './src/view/ui-controller.js',
   },
   devtool: 'inline-source-map',
   plugins: [
@@ -27,9 +31,15 @@ module.exports = {
     alias: {
       Assets: path.resolve(__dirname, 'src/assets'),
       Controller: path.resolve(__dirname, 'src/controller'),
+      Data: path.resolve(__dirname, 'src/assets/data'),
+      Fonts: path.resolve(__dirname, 'src/assets/fonts'),
+      Icon: path.resolve(__dirname, 'src/assets/icon'),
+      Images: path.resolve(__dirname, 'src/assets/images'),
       Modules: path.resolve(__dirname, 'src/modules'),
       Style: path.resolve(__dirname, 'src/style'),
+      Svg: path.resolve(__dirname, 'src/assets/images/svg'),
       Utilities: path.resolve(__dirname, 'src/utilities'),
+      View: path.resolve(__dirname, 'src/view'),
     },
   },
   module: {

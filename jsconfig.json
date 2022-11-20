@@ -5,8 +5,13 @@
     "paths": {
       "Assets/*": ["src/assets/*"],
       "Controller/*": ["src/controller/*"],
+      "Data/*": ["src/assets/data/*"],
+      "Fonts/*": ["src/assets/fonts/*"],
+      "Icon/*": ["src/assets/icon/*"],
+      "Images/*": ["src/assets/images/*"],
       "Modules/*": ["src/modules/*"],
       "Style/*": ["src/style/*"],
+      "Svg/*": ["src/assets/images/svg/*"],
       "Utilities/*": ["src/utilities/*"],
       "View/*": ["src/view/*"],
     }
