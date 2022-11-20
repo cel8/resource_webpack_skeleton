@@ -8,6 +8,7 @@
       "Modules/*": ["src/modules/*"],
       "Style/*": ["src/style/*"],
       "Utilities/*": ["src/utilities/*"],
+      "View/*": ["src/view/*"],
     }
   }
 }
