@@ -34,7 +34,7 @@ export default class DomManager {
     return DomManager.createNode(type, className, id, content, null);
   }
 
-  static createNodeImg(imgFileName, alt, local = true, className = null, id = null) {
+  static createNodeImg(imgFileName, alt, className = null, id = null, local = true) {
     const fileFullPath = local ? imagePath + imgFileName : imgFileName; // local path or url
     const node = DomManager.createNode('img', className, id, null, null);
     node.setAttribute('src', fileFullPath);
@@ -42,12 +42,12 @@ export default class DomManager {
     return node;
   }
 
-  static createNodeImgClass(imgFileName, alt, className, local = true, id = null) {
-    return DomManager.createNodeImg(imgFileName, alt, local, className, id);
+  static createNodeImgClass(imgFileName, alt, className, id = null, local = true) {
+    return DomManager.createNodeImg(imgFileName, alt, className, id, local);
   }
 
-  static createNodeImgID(imgFileName, alt, id, local = true, className = null) {
-    return DomManager.createNodeImg(imgFileName, alt, local, className, id);
+  static createNodeImgID(imgFileName, alt, id, className = null, local = true) {
+    return DomManager.createNodeImg(imgFileName, alt, className, id, local);
   }
 
   static createNodeLink(link, className = null, id = null, content = null, children = null) {
@@ -76,9 +76,9 @@ export default class DomManager {
     return node;
   }
 
-  static createAddNodeImg(imgFileName, alt, father, local = true, className = null, id = null, content = null, children = null) {
+  static createAddNodeImg(imgFileName, alt, father, className = null, id = null, local = true) {
     // Append the new node in father
-    const node = DomManager.createNodeImg(imgFileName, alt, local, className, id, content, children);
+    const node = DomManager.createNodeImg(imgFileName, alt, className, id, local);
     father.appendChild(node);
     return node;
   }
