@@ -34,20 +34,20 @@ export default class DomManager {
     return DomManager.createNode(type, className, id, content, null);
   }
 
-  static createNodeImg(imgFileName, alt, className = null, id = null) {
-    const fileFullPath = imagePath + imgFileName;
+  static createNodeImg(imgFileName, alt, local = true, className = null, id = null) {
+    const fileFullPath = local ? imagePath + imgFileName : imgFileName; // local path or url
     const node = DomManager.createNode('img', className, id, null, null);
     node.setAttribute('src', fileFullPath);
     node.setAttribute('alt', alt);
     return node;
   }
 
-  static createNodeImgClass(imgFileName, alt, className, id = null) {
-    return DomManager.createNodeImg(imgFileName, alt, className, id);
+  static createNodeImgClass(imgFileName, alt, className, local = true, id = null) {
+    return DomManager.createNodeImg(imgFileName, alt, local, className, id);
   }
 
-  static createNodeImgID(imgFileName, alt, id, className = null) {
-    return DomManager.createNodeImg(imgFileName, alt, className, id);
+  static createNodeImgID(imgFileName, alt, id, local = true, className = null) {
+    return DomManager.createNodeImg(imgFileName, alt, local, className, id);
   }
 
   static createNodeLink(link, className = null, id = null, content = null, children = null) {
@@ -76,20 +76,22 @@ export default class DomManager {
     return node;
   }
 
-  static createAddNodeImg(imgFileName, alt, father, className = null, id = null, content = null, children = null) {
+  static createAddNodeImg(imgFileName, alt, father, local = true, className = null, id = null, content = null, children = null) {
     // Append the new node in father
-    const node = DomManager.createNodeImg(imgFileName, alt, className, id, content, children);
+    const node = DomManager.createNodeImg(imgFileName, alt, local, className, id, content, children);
     father.appendChild(node);
     return node;
   }
 
-  static updateNodeImgBySelector(imgFileName, father, selector) {
+  static updateNodeImgBySelector(imgFileName, father, selector, local = true) {
     const imgNode = father.querySelector(selector);
-    if(imgNode) imgNode.setAttribute('src', imagePath + imgFileName);
+    const url = local ? imagePath + imgFileName : imgFileName;
+    if(imgNode) imgNode.setAttribute('src', url);
   }
 
-  static updateNodeImg(imgFileName, imgNode) {
-    if(imgNode) imgNode.setAttribute('src', imagePath + imgFileName);
+  static updateNodeImg(imgFileName, imgNode, local = true) {
+    const url = local ? imagePath + imgFileName : imgFileName;
+    if(imgNode) imgNode.setAttribute('src', url);
   }
 
   static removeAllChildNodes(parent) {
