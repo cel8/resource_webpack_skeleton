@@ -100,6 +100,10 @@ export default class DomManager {
     }
   }
 
+  static isNodeHide(node) {
+    return node.style.display === 'none';
+  }
+
   static toggleDisplayByNode(node, nextDisplay = undefined) {
     if(node) {
       if(node.dataset.prevDisplay === undefined) {
