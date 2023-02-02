@@ -25,8 +25,8 @@ export default class ButtonManager {
       } else {
         btnText.textContent = text;
       }
-    } else if(btnText.length > 0) { /* Create node */
-      DomManager.createAddNode('p', btn, null, null, btnText);
+    } else if(text.length > 0) { /* Create node */
+      DomManager.createAddNode('p', btn, null, null, text);
     }
   }
 
