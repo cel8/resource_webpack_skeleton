@@ -87,13 +87,14 @@ sed -i 's/exit 1"/exit 1",\n    "watch": "webpack --watch",\n    "build": "webpa
 # Install packages
 npm i -P css-loader style-loader date-fns
 npm i -D webpack webpack-cli clean-webpack-plugin html-webpack-plugin
-npm i -D eslint eslint-import-resolver-webpack eslint-plugin-import eslint-config-prettier
+npm i -D eslint eslint-import-resolver-webpack eslint-plugin-import eslint-config-prettier jest @babel/preset-env
 
 # Install ESLINT
 npm init @eslint/config
 
 # Copy default eslintrc
 cp "$HOME/repos/web/resWebPrj/.eslintrc.json" .
+cp "$HOME/repos/web/resWebPrj/.babelrc" .
 
 # Return to current folder
 cd "$curDir"
