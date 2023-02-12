@@ -75,6 +75,7 @@ cp "$HOME/repos/web/resWebPrj/jsconfig.json" .
 cp "$HOME/repos/web/resWebPrj/webpack.config.js" .
 cp -R "$HOME/repos/web/resWebPrj/.vscode" .
 cp -R "$HOME/repos/web/resWebPrj/src" .
+cp -R "$HOME/repos/web/resWebPrj/test" .
 cp -R "$HOME/repos/web/resWebPrj/dist" .
 
 # Initialize NPM
@@ -82,7 +83,8 @@ npm init -y
 
 # Change package.json content
 sed -i 's/"main":.*\.js",/"private": true,/g' package.json
-sed -i 's/exit 1"/exit 1",\n    "watch": "webpack --watch",\n    "build": "webpack"/g' package.json
+sed -i 's/exit 1"/exit 1",\n    "watch-test": "jest --watch *.js",\n    "watch": "webpack --watch",\n    "build": "webpack"/g' package.json
+sed -i 's/echo.*exit 1/jest/g' package.json
 
 # Install packages
 npm i -P css-loader style-loader date-fns
