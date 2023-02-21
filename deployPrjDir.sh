@@ -83,13 +83,14 @@ npm init -y
 
 # Change package.json content
 sed -i 's/"main":.*\.js",/"private": true,/g' package.json
-sed -i 's/exit 1"/exit 1",\n    "watch-test": "jest --watch *.js",\n    "watch": "webpack --watch",\n    "build": "webpack"/g' package.json
+sed -i 's/exit 1"/exit 1",\n    "test-clear": "jest --clearCache",\n    "watch-test": "jest --watch *.js",\n    "watch": "webpack --watch",\n    "build": "webpack"/g' package.json
 sed -i 's/echo.*exit 1/jest/g' package.json
+sed -i 's/"private": true,/"private": true,\n  "jest": {\n    "moduleNameMapper": {\n      "^Assets\/(.*)$": "<rootDir>\/src\/assets\/$1",\n      "^Controller\/(.*)$": "<rootDir>\/src\/controller\/$1",\n      "^Data\/(.*)$": "<rootDir>\/src\/assets\/data\/$1",\n      "^Fonts\/(.*)$": "<rootDir>\/src\/assets\/fonts\/$1",\n      "^Icon\/(.*)$": "<rootDir>\/src\/assets\/icon\/$1",\n      "^Images\/(.*)$": "<rootDir>\/src\/assets\/images\/$1",\n      "^Modules\/(.*)$": "<rootDir>\/src\/modules\/$1",\n      "^Style\/(.*)$": "<rootDir>\/src\/style\/$1",\n      "^Svg\/(.*)$": "<rootDir>\/src\/assets\/images\/svg\/$1",\n      "^Utilities\/(.*)$": "<rootDir>\/src\/utilities\/$1",\n      "^View\/(.*)$": "<rootDir>\/src\/view\/$1"\n    }\n  },/g' package.json
 
 # Install packages
 npm i -P css-loader style-loader date-fns
 npm i -D webpack webpack-cli clean-webpack-plugin html-webpack-plugin
-npm i -D eslint eslint-import-resolver-webpack eslint-plugin-import eslint-config-prettier jest @babel/preset-env
+npm i -D eslint eslint-import-resolver-webpack eslint-plugin-import eslint-config-prettier eslint-config-airbnb-base jest @babel/preset-env
 
 # Install ESLINT
 npm init @eslint/config
